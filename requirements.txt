@@ -1,0 +1,8 @@
+certifi==2018.4.16
+chardet==3.0.4
+idna==2.6
+pad4pi==1.1.3
+pkg-resources==0.0.0
+requests==2.18.4
+RPi.GPIO==0.6.3
+urllib3==1.22
