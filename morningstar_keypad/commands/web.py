@@ -18,3 +18,7 @@ class HttpRequestCommand(Command):
                          data=self.data,
                          hooks=self.hooks)
 
+
+def http_request(url, method='GET', headers=None, data=None, hooks=None):
+    return HttpRequestCommand(url, method=method,headers=headers, data=data,
+                              hooks=hooks)

@@ -1,10 +1,10 @@
 from commands.pilight import use_pilight_url, turn_on, turn_off
 from commands.system import execute
+from commands.web import http_request
 from executor import on_code
 
 use_pilight_url('http://localhost:5001')
 
-#
 KEYPAD = [
     ['1', '2', '3', 'A'],
     ['4', '5', '6', 'B'],
@@ -32,8 +32,8 @@ COMMANDS = {
     on_code('A3*'): turn_on('LIVING-LIGHT-AMBIENT'),
     on_code('A3#'): turn_off('LIVING-LIGHT-AMBIENT'),
 
-    on_code('B1*'): turn_on('LIVING-LIGHT-ACCENT'),
-    on_code('B1#'): turn_off('LIVING-LIGHT-ACCENT'),
+    on_code('B1*'): http_request('https://localhost/counter?action=increase',
+                                 method='POST'),
 
     on_code('D1*'): execute('/etc/init.d/pilight start'),
     on_code('D1#'): execute('/etc/init.d/pilight stop')
